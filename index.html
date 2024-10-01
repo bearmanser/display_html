@@ -198,7 +198,6 @@
         <div class="results-content">
           <!-- Text Section -->
           <div class="text-section">
-            <!-- Title -->
             <h2 style="font-weight: normal">Dette er hvor mye du kan spare</h2>
             <p class="info-text">
               Basert på bygningens batterier, solkraft og fjorårets
@@ -215,6 +214,13 @@
             <canvas id="myChart"></canvas>
           </div>
         </div>
+        <p style="font-size: 0.7rem; color: gray; margin-top: 50px">
+          Vi baserer oss på ditt tidligere strømforbruk og sammenligner
+          kostnader med og uten SIC for neste år,
+          basert på predikerte strømpriser. <br />
+          Merk at dette er et estimat, og faktiske besparelser kan variere.
+          Kontakt oss for en mer nøyaktig vurdering.
+        </p>
       </div>
     </div>
 
@@ -285,15 +291,15 @@
           options: {
             scales: {
               y: {
-                beginAtZero: false,
-                min: function (context) {
-                  const minValue = Math.min(
-                    ...context.chart.data.datasets.flatMap(
-                      (dataset) => dataset.data
-                    )
-                  );
-                  return minValue * 0.75;
-                },
+                beginAtZero: true,
+                // min: function (context) {
+                //   const minValue = Math.min(
+                //     ...context.chart.data.datasets.flatMap(
+                //       (dataset) => dataset.data
+                //     )
+                //   );
+                //   return minValue * 0.75;
+                // },
                 grid: {
                   display: false,
                 },
