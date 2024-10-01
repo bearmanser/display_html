@@ -34,9 +34,11 @@
 
       .input-container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
         transition: opacity 0.5s ease;
+        width: 100%;
       }
 
       h2 {
@@ -45,8 +47,12 @@
         color: #222;
       }
 
+      .text-section {
+        width: 50%;
+      }
+
       input {
-        width: 400px;
+        width: 300px;
         padding: 10px;
         font-size: 1rem;
         margin-bottom: 20px;
@@ -55,9 +61,17 @@
         border-radius: 2px;
       }
 
+      .inputs-section {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        margin-top: 32px;
+      }
+
       input:focus {
-        outline: none; /* Removes the default outline */
-        border-color: #658c3d; /* Changes border color */
+        outline: none;
+        border-color: #658c3d;
       }
 
       button {
@@ -135,7 +149,7 @@
         box-shadow: 0 15px 80px -5px rgba(0, 0, 0, 0.25);
         padding: 10px;
         border-radius: 10px;
-        background: #f5f5f5;
+        background: #f3f3f3;
       }
 
       canvas {
@@ -148,23 +162,34 @@
     <div class="container">
       <!-- Input Form -->
       <div class="input-container" id="input-container">
-        <h2 style="font-weight: normal">Finn ut hvor mye du kan spare</h2>
-        <input
-          type="number"
-          id="totalUsage"
-          placeholder="Fjorårets energiforbruk (kWh)"
-        />
-        <input
-          type="number"
-          id="batterySize"
-          placeholder="Batteristørrelse (kWh)"
-        />
-        <input
-          type="number"
-          id="peakSolarPower"
-          placeholder="Topp solkraft (kWh)"
-        />
-        <button onclick="showResults()">REGN UT</button>
+        <div class="text-section">
+          <!-- Title -->
+          <h2 style="font-weight: normal">Finn ut hvor mye du kan spare</h2>
+          <p class="info-text">
+            Oppdag hvor mye du kan spare på strømregningen ved å bruke våre
+            løsninger. Fyll inn ditt energiforbruk, batteristørrelse og solkraft
+            for å se potensielle besparelser.
+          </p>
+        </div>
+
+        <div class="inputs-section">
+          <input
+            type="number"
+            id="totalUsage"
+            placeholder="Fjorårets energiforbruk (kWh)"
+          />
+          <input
+            type="number"
+            id="batterySize"
+            placeholder="Batteristørrelse (kWh)"
+          />
+          <input
+            type="number"
+            id="peakSolarPower"
+            placeholder="Topp solkraft (kWh)"
+          />
+          <button onclick="showResults()">REGN UT</button>
+        </div>
       </div>
 
       <!-- Results Section (Initially Hidden) -->
@@ -239,6 +264,7 @@
                 backgroundColor: "rgba(255, 159, 64, 0.4)",
                 borderColor: "rgba(255, 159, 64, 1)",
                 tension: 0.4,
+                borderWidth: 2,
                 pointRadius: 0,
               },
               {
@@ -251,6 +277,7 @@
                 backgroundColor: "rgba(99, 255, 132, 0.6)",
                 borderColor: "rgba(99, 255, 132, 1)",
                 tension: 0.4,
+                borderWidth: 2,
                 pointRadius: 0,
               },
             ],
