@@ -215,7 +215,7 @@
           </div>
         </div>
         <p style="font-size: 0.7rem; color: gray; margin-top: 20px">
-          Vi baserer oss på ditt tidligere strømforbruk og sammenligner
+          Vi baserer utregningen på ditt tidligere strømforbruk og sammenligner
           kostnader med og uten SIC for neste år,
           basert på predikerte strømpriser. <br />
           Merk at dette er et estimat, og faktiske besparelser kan variere.
@@ -261,6 +261,19 @@
             ],
             datasets: [
               {
+                label: "Strøm kostnad med SIC",
+                data: [
+                  20000, 18000, 17000, 16000, 15000, 16000, 18000, 17500, 16500,
+                  16000, 18000, 20000,
+                ],
+                fill: true,
+                backgroundColor: "rgb(101, 140, 61)",
+                borderColor: "#2B5500",
+                tension: 0.4,
+                borderWidth: 2,
+                pointRadius: 0,
+              },
+              {
                 label: "Strøm kostnad uten SIC",
                 data: [
                   25000, 23000, 20000, 19000, 18000, 20000, 22000, 21000, 19000,
@@ -273,33 +286,20 @@
                 borderWidth: 2,
                 pointRadius: 0,
               },
-              {
-                label: "Strøm kostnad med SIC",
-                data: [
-                  20000, 18000, 17000, 16000, 15000, 16000, 18000, 17500, 16500,
-                  16000, 18000, 20000,
-                ],
-                fill: true,
-                backgroundColor: "rgb(0, 127, 59)",
-                borderColor: "rgba(99, 200, 132, 1)",
-                tension: 0.4,
-                borderWidth: 2,
-                pointRadius: 0,
-              },
             ],
           },
           options: {
             scales: {
               y: {
                 beginAtZero: true,
-                // min: function (context) {
-                //   const minValue = Math.min(
-                //     ...context.chart.data.datasets.flatMap(
-                //       (dataset) => dataset.data
-                //     )
-                //   );
-                //   return minValue * 0.75;
-                // },
+                min: function (context) {
+                  const minValue = Math.min(
+                    ...context.chart.data.datasets.flatMap(
+                      (dataset) => dataset.data
+                    )
+                  );
+                  return minValue * 0.75;
+                },
                 grid: {
                   display: false,
                 },
