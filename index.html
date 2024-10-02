@@ -292,7 +292,7 @@
           </div>
         </div>
         <!-- Button moved under the graph -->
-        <a href="https://www.iqu.no/kontakt-oss/" class="cta-button">Ta kontakt for å vite mer</a>
+        <button onclick="changeParentURL()">Ta kontakt for å vite mer</button>
         <p style="font-size: 0.7rem; color: gray; margin-top: 20px">
           Vi baserer utregningen på ditt tidligere strømforbruk og sammenligner
           kostnader med og uten SIC for neste år, basert på predikerte
@@ -304,6 +304,10 @@
     </div>
 
     <script>
+      function changeParentURL() {
+        window.parent.location.href = "https://www.iqu.no/kontakt-oss/";
+      }
+
       // Show Results Function (Hides Input Form and Shows Results)
       function showResults() {
         const inputContainer = document.getElementById("input-container");
