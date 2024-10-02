@@ -10,6 +10,10 @@
       rel="stylesheet"
     />
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
         background-color: #fff;
@@ -21,6 +25,7 @@
         align-items: center;
         height: 100vh;
         text-align: center;
+        overflow: hidden;
       }
 
       .container {
@@ -34,10 +39,11 @@
       .input-container {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
         transition: opacity 0.5s ease;
         width: 100%;
+        height: 100vh;
       }
 
       h2 {
@@ -48,6 +54,8 @@
 
       .text-section {
         width: 50%;
+        padding-right: 80px;
+        padding-left: 200px;
       }
 
       input {
@@ -109,12 +117,6 @@
         align-items: center;
       }
 
-      .text-section {
-        width: 50%;
-        padding-right: 80px;
-        padding-left: 200px;
-      }
-
       .info-text {
         font-size: 1.2rem;
         line-height: 1.8;
@@ -155,6 +157,74 @@
       canvas {
         max-width: 100%;
         height: auto;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        .text-section {
+          padding-left: 0;
+          padding-right: 20px;
+        }
+
+        .chart-section {
+          padding-left: 20px;
+        }
+
+        .inputs-section {
+          width: 100%;
+          margin-right: 0;
+        }
+
+        .input-container {
+          width: 100%;
+        }
+
+        input {
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          overflow: hidden;
+        }
+
+        .results-content {
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .text-section {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .chart-section {
+          width: 100%;
+          padding-left: 0;
+        }
+
+        .inputs-section {
+          width: 100%;
+          margin-right: 0;
+          padding: 0 20px;
+        }
+
+        .input-container {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        input {
+          width: 90%;
+        }
+
+        .cta-button {
+          order: 2;
+          margin-top: 20px;
+        }
       }
     </style>
   </head>
@@ -206,7 +276,6 @@
               årlig strøm kostnad. Dette tilsvarer
               <span class="highlight">120 200 kr</span> i årlig besparelse!
             </p>
-            <a href="#" class="cta-button">Ta kontakt for å vite mer</a>
           </div>
 
           <!-- Chart Section -->
@@ -214,10 +283,12 @@
             <canvas id="myChart"></canvas>
           </div>
         </div>
+        <!-- Button moved under the graph -->
+        <a href="#" class="cta-button">Ta kontakt for å vite mer</a>
         <p style="font-size: 0.7rem; color: gray; margin-top: 20px">
           Vi baserer utregningen på ditt tidligere strømforbruk og sammenligner
-          kostnader med og uten SIC for neste år,
-          basert på predikerte strømpriser. <br />
+          kostnader med og uten SIC for neste år, basert på predikerte
+          strømpriser. <br />
           Merk at dette er et estimat, og faktiske besparelser kan variere.
           Kontakt oss for en mer nøyaktig vurdering.
         </p>
