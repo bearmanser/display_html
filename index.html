@@ -151,12 +151,20 @@
         width: 50%;
         padding: 10px;
         border-radius: 10px;
-        margin-left: 230px;
+        margin-left: calc(
+          20px + (230 - 20) * ((100vw - 1024px) / (1600 - 1024))
+        );
       }
 
       canvas {
         max-width: 100%;
         height: auto;
+      }
+
+      @media (min-width: 1600px) {
+        .chart-section {
+          margin-left: 230px;
+        }
       }
 
       /* Responsive Styles */
@@ -284,7 +292,7 @@
           </div>
         </div>
         <!-- Button moved under the graph -->
-        <a href="#" class="cta-button">Ta kontakt for å vite mer</a>
+        <a href="https://www.iqu.no/kontakt-oss/" class="cta-button">Ta kontakt for å vite mer</a>
         <p style="font-size: 0.7rem; color: gray; margin-top: 20px">
           Vi baserer utregningen på ditt tidligere strømforbruk og sammenligner
           kostnader med og uten SIC for neste år, basert på predikerte
